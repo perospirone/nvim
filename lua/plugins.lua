@@ -8,17 +8,19 @@ return require 'packer'.startup(function(use)
     tag = 'v1.*'
 	})
 
-	use {
-  	'nvim-lualine/lualine.nvim',
-  	requires = {'kyazdani42/nvim-web-devicons', opt = true}
- 	}
+  use "VDuchauffour/neodark.nvim"
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+   }
 
   --[[use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
    }]]
 
- 	use 'rktjmp/lush.nvim'
+  use 'rktjmp/lush.nvim'
 
 	use 'preservim/nerdcommenter'
 
@@ -38,7 +40,6 @@ return require 'packer'.startup(function(use)
 			},
 			view = {
 				width = 30,
-				auto_resize = true
 			}
 		}
 	end
@@ -47,20 +48,38 @@ return require 'packer'.startup(function(use)
 	use {'nvim-telescope/telescope.nvim', requires = {'kyazdani42/nvim-web-devicons', 'nvim-lua/plenary.nvim'}}
 
 	use {'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
-		event = 'BufRead',
 		config = function()
 			require 'nvim-treesitter.configs'.setup {
-				ensure_installed = {'lua', 'go', 'c', 'cpp', 'rust', 'javascript', 'typescript', 'fish', 'dockerfile', 'gomod', 'json', 'elixir', 'php'},
+				ensure_installed = {'lua', 'go', 'c', 'cpp', 'rust', 'javascript', 'typescript', 'fish', 'dockerfile', 'gomod', 'json', 'elixir', 'php', 'tsx', 'haskell', 'dart', 'org', 'norg', 'commonlisp'},
 				highlight = {
-					enable = true
+					enable = true,
+          additional_vim_regex_highlighting = {'org'},
 				},
   			autotag = {
     			enable = true,
-  			}
+  			},
+  			auto_install = true
 			}
 		end
 	}
+
+  use {'nvim-orgmode/orgmode',
+  after = "nvim-treesitter",
+  config = function()
+    require('orgmode').setup_ts_grammar()
+
+    require('orgmode').setup({
+      org_agenda_files = {'~/org/*', '~/orgs/**/*'},
+      org_default_notes_file = '~/org/refile.org',
+      mappings = {
+        global = {
+          org_agenda = 'gA',
+          org_capture = 'gC'
+        }
+      }
+    })
+  end
+}
 
 	use {'windwp/nvim-autopairs',
 		config = function()
@@ -173,4 +192,35 @@ return require 'packer'.startup(function(use)
   use 'alvan/vim-closetag'
 
   use 'ray-x/go.nvim' -- remember later
+
+  use 'karb94/neoscroll.nvim'
+
+  use {
+    "windwp/nvim-ts-autotag",
+    after = "nvim-treesitter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end
+  }
+  use 'phaazon/mind.nvim'
+
+  use 'kyazdani42/nvim-web-devicons'
+
+  use 'xiyaowong/nvim-transparent'
+
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+  use {
+    'synaptiko/xit.nvim',
+    opt = true, -- for lazy-loading
+    ft = 'xit', -- for lazy-loading
+    run = function(plugin)
+      plugin.config()
+      vim.cmd[[:TSInstall! xit]]
+    end,
+    config = function() require('xit').setup() end,
+    requires = { 'nvim-treesitter/nvim-treesitter' }
+  }
+
+  use { 'vlime/vlime', rtp = 'vim/'}
 end)

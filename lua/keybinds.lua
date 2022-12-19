@@ -17,8 +17,8 @@ function nimap(lhs, rhs, opts)
 	map('i', lhs, rhs, opts)
 end
 
-nmap('q', '<Cmd>q<CR>')
-nmap('Q', '<Cmd>q!<CR>')
+--nmap('q', '<Cmd>q<CR>')
+--nmap('Q', '<Cmd>q!<CR>')
 nmap('H', 'gT')
 nmap('L', 'gt')
 nimap('<F4>', '<Cmd>:noh<CR>')

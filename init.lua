@@ -22,6 +22,8 @@ vim.o.showmode = false -- rever esse item
 vim.o.confirm = true
 vim.o.updatetime = 250
 vim.o.cursorline = true
+vim.o.mouse = '' -- disable mouse
+vim.o.autoindent = true
 
 -- Buffer 
 vim.wo.number = true
@@ -76,3 +78,8 @@ require ('colorizer').setup {
 vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 
 require('go').setup()
+
+require('neoscroll').setup()
+require'mind'.setup()
+-- NeoOrg
+-- Load custom tree-sitter grammar for org filetype
