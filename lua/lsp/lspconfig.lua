@@ -103,7 +103,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 --cmp_nvim_lsp.default_capabilities
 
-local servers = { 'gopls', 'ccls', 'tsserver', 'phpactor', 'ocamllsp', 'dartls' }
+local servers = { 'gopls', 'ccls', 'tsserver', 'phpactor', 'ocamllsp', 'dartls', 'eslint', 'tailwindcss' }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {

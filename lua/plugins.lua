@@ -64,22 +64,22 @@ return require 'packer'.startup(function(use)
 	}
 
   use {'nvim-orgmode/orgmode',
-  after = "nvim-treesitter",
-  config = function()
-    require('orgmode').setup_ts_grammar()
+    after = "nvim-treesitter",
+    config = function()
+      require('orgmode').setup_ts_grammar()
 
-    require('orgmode').setup({
-      org_agenda_files = {'~/org/*', '~/orgs/**/*'},
-      org_default_notes_file = '~/org/refile.org',
-      mappings = {
-        global = {
-          org_agenda = 'gA',
-          org_capture = 'gC'
+      require('orgmode').setup({
+        org_agenda_files = {'~/org/*', '~/orgs/**/*'},
+        org_default_notes_file = '~/org/refile.org',
+        mappings = {
+          global = {
+            org_agenda = 'gA',
+            org_capture = 'gC'
+          }
         }
-      }
-    })
-  end
-}
+      })
+    end
+  }
 
 	use {'windwp/nvim-autopairs',
 		config = function()

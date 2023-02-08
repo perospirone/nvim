@@ -240,7 +240,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "orgmode", "nvim-ts-autotag" },
-    config = { "\27LJ\2\nÉ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\1\venable\2\21ensure_installed\1\0\1\17auto_install\2\1\19\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\borg\tnorg\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nÔ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\1\venable\2\21ensure_installed\1\0\1\17auto_install\2\1\20\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\borg\tnorg\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     only_config = true,
     path = "/home/danitw/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -260,7 +260,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   orgmode = {
-    config = { "\27LJ\2\ný\1\0\0\5\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0005\2\5\0005\3\4\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\rmappings\vglobal\1\0\0\1\0\2\15org_agenda\agA\16org_capture\agC\21org_agenda_files\1\0\1\27org_default_notes_file\21~/org/refile.org\1\3\0\0\f~/org/*\16~/orgs/**/*\nsetup\21setup_ts_grammar\forgmode\frequire\0" },
+    config = { "\27LJ\2\ný\1\0\0\5\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0005\2\5\0005\3\4\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\rmappings\vglobal\1\0\0\1\0\2\16org_capture\agC\15org_agenda\agA\21org_agenda_files\1\0\1\27org_default_notes_file\21~/org/refile.org\1\3\0\0\f~/org/*\16~/orgs/**/*\nsetup\21setup_ts_grammar\forgmode\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = true,
@@ -278,7 +278,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["presence.nvim"] = {
-    config = { "\27LJ\2\n–\3\0\0\4\0\4\0\b6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0005\3\3\0B\0\3\1K\0\1\0\1\0\r\22neovim_image_text\29The One True Text Editor\16auto_update\2\17reading_text\18Looking at %s\24plugin_manager_text\21Managing Plugins\20git_commit_text\23Committing Changes\23file_explorer_text\16Browsing %s\17editing_text\18Working on %s\23enable_line_number\1\21debounce_timeout\3\n\14log_level\nerror\21line_number_text\15Line %s/%s\15main_image\tfile\19workspace_text\18Workspace: %s\nsetup\rpresence\frequire\0" },
+    config = { "\27LJ\2\n–\3\0\0\4\0\4\0\b6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0005\3\3\0B\0\3\1K\0\1\0\1\0\r\21debounce_timeout\3\n\14log_level\nerror\21line_number_text\15Line %s/%s\15main_image\tfile\19workspace_text\18Workspace: %s\22neovim_image_text\29The One True Text Editor\16auto_update\2\17reading_text\18Looking at %s\24plugin_manager_text\21Managing Plugins\20git_commit_text\23Committing Changes\23file_explorer_text\16Browsing %s\17editing_text\18Working on %s\23enable_line_number\1\nsetup\rpresence\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -326,6 +326,11 @@ _G.packer_plugins = {
     path = "/home/danitw/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-jsx-pretty"] = {
+    loaded = true,
+    path = "/home/danitw/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
+    url = "https://github.com/maxmellon/vim-jsx-pretty"
+  },
   ["vim-styled-components"] = {
     loaded = true,
     path = "/home/danitw/.local/share/nvim/site/pack/packer/start/vim-styled-components",
@@ -350,41 +355,58 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/danitw/.local/share/nvim/site/pack/packer/start/vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
+  },
+  vlime = {
+    loaded = true,
+    path = "/home/danitw/.local/share/nvim/site/pack/packer/start/vlime/vim/",
+    url = "https://github.com/vlime/vlime"
+  },
+  ["xit.nvim"] = {
+    config = { "\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\bxit\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/danitw/.local/share/nvim/site/pack/packer/opt/xit.nvim",
+    url = "https://github.com/synaptiko/xit.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/home/danitw/.local/share/nvim/site/pack/packer/start/vlime/vim/"
+time([[Runtimepath customization]], false)
 -- Setup for: markdown-preview.nvim
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\nà\1\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\tview\1\0\1\nwidth\3\30\ffilters\vcustom\1\0\0\1\3\0\0\t.git\17node_modules\24update_focused_file\1\0\1\venable\2\16diagnostics\1\0\1\venable\2\1\0\1\15update_cwd\2\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nÉ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\1\venable\2\21ensure_installed\1\0\1\17auto_install\2\1\19\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\borg\tnorg\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\nÔ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\1\venable\2\21ensure_installed\1\0\1\17auto_install\2\1\20\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\borg\tnorg\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd orgmode ]]
-
--- Config for: orgmode
-try_loadstring("\27LJ\2\ný\1\0\0\5\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0005\2\5\0005\3\4\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\rmappings\vglobal\1\0\0\1\0\2\15org_agenda\agA\16org_capture\agC\21org_agenda_files\1\0\1\27org_default_notes_file\21~/org/refile.org\1\3\0\0\f~/org/*\16~/orgs/**/*\nsetup\21setup_ts_grammar\forgmode\frequire\0", "config", "orgmode")
-
 vim.cmd [[ packadd nvim-ts-autotag ]]
 
 -- Config for: nvim-ts-autotag
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+
+vim.cmd [[ packadd orgmode ]]
+
+-- Config for: orgmode
+try_loadstring("\27LJ\2\ný\1\0\0\5\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0005\2\5\0005\3\4\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\rmappings\vglobal\1\0\0\1\0\2\16org_capture\agC\15org_agenda\agA\21org_agenda_files\1\0\1\27org_default_notes_file\21~/org/refile.org\1\3\0\0\f~/org/*\16~/orgs/**/*\nsetup\21setup_ts_grammar\forgmode\frequire\0", "config", "orgmode")
 
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
@@ -392,11 +414,17 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType xit ++once lua require("packer.load")({'xit.nvim'}, { ft = "xit" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'presence.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/danitw/.local/share/nvim/site/pack/packer/opt/xit.nvim/ftdetect/xit.vim]], true)
+vim.cmd [[source /home/danitw/.local/share/nvim/site/pack/packer/opt/xit.nvim/ftdetect/xit.vim]]
+time([[Sourcing ftdetect script at: /home/danitw/.local/share/nvim/site/pack/packer/opt/xit.nvim/ftdetect/xit.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
