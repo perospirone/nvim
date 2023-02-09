@@ -10,6 +10,7 @@ vim.o.softtabstop = 2
 vim.o.expandtab = true
 vim.o.preserveindent = true
 vim.o.termguicolors = true
+vim.g.smartindent = true
 vim.cmd('set t_Co=256')
 vim.o.clipboard = 'unnamedplus'
 vim.o.scrolloff = 8
@@ -31,6 +32,11 @@ vim.wo.relativenumber = true
 
 --  Plugins
 vim.g.gitgutter = true
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.php"},
+  command = "lua vim.o.autoindent = true",
+})
 
 vim.cmd('let g:blamer_enabled = 1')
 vim.cmd('let g:blamer_delay = 500')
