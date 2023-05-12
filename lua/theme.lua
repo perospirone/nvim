@@ -32,11 +32,11 @@ require('rose-pine').setup({
 -- Set colorscheme after options
 vim.cmd('colorscheme rose-pine')
 vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-vim.cmd('hi statusline guibg=NONE')
+vim.cmd('hi StatusLine guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE')
+vim.cmd('hi StatusLineNC guibg=NONE')
 vim.cmd('hi Tabline guibg=NONE')
 vim.cmd('hi TablineSel guibg=NONE')
 vim.cmd('hi TablineFill guibg=NONE')
---vim.cmd('highlight Normal ctermbg=none')
 --vim.cmd('highlight NonText ctermbg=none')
 
 --require('lualine').setup({
