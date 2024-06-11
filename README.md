@@ -31,15 +31,15 @@ To set up this configuration, follow these steps:
    ```
 2. **Clone this repository**:
     ```sh
-    git clone https://github.com/perospirone/nvim ~/.config/nvim
+   git clone https://github.com/perospirone/nvim ~/.config/nvim
     ```
 3. **Install plugins**:
     ```sh
-    :PackerSync
+   :PackerSync
     ```
 4. **Install LSP servers** (optional, but recommended):
     ```sh
-    :LspInstall <language-server>
+   :LspInstall <language-server>
     ```
 
 ---
