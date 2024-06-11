@@ -35,12 +35,12 @@ To set up this configuration, follow these steps:
     ```
 3. **Install plugins**:
     ```sh
-  :PackerSync
-  ```
+    :PackerSync
+    ```
 4. **Install LSP servers** (optional, but recommended):
     ```sh
-  :LspInstall <language-server>
-  ```
+    :LspInstall <language-server>
+    ```
 
 ---
 
