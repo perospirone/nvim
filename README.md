@@ -31,7 +31,8 @@ To set up this configuration, follow these steps:
    ```
 2. **Clone this repository**:
     ```sh
-  git clone https://github.com/perospirone/nvim ~/.config/nvim```
+    git clone https://github.com/perospirone/nvim ~/.config/nvim
+    ```
 3. **Install plugins**:
     ```sh
   :PackerSync
@@ -45,7 +46,6 @@ To set up this configuration, follow these steps:
 
 ### Part 3: Key Features and Plugins
 
-```markdown
 ## Key Features
 
 - **Plugin management** with [packer.nvim](https://github.com/wbthomason/packer.nvim)
@@ -66,4 +66,3 @@ Here's a list of notable plugins used in this configuration:
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
 - [lualine.nvim](https://github.com/hoob3rt/lualine.nvim) - Status line
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git integration
-```
