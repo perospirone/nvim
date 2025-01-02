@@ -2,6 +2,7 @@ require 'plugins'
 require 'theme'
 require 'keybinds'
 require 'lsp/lspconfig'
+require 'foldconfig'
 
 vim.o.hidden = true
 vim.o.tabstop = 2
@@ -56,12 +57,8 @@ vim.opt.termguicolors = true
 --vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+--vim.opt.listchars:append("space:⋅")
 --vim.opt.listchars:append("eol:↴")
-
-require("indent_blankline").setup {
-  show_end_of_line = true,
-}
 
 --require("indent_blankline").setup {
   --space_char_blankline = " ",
@@ -88,3 +85,4 @@ require('neoscroll').setup()
 require'mind'.setup()
 -- NeoOrg
 -- Load custom tree-sitter grammar for org filetype
+--require("ibl").setup()

@@ -50,7 +50,7 @@ return require 'packer'.startup(function(use)
 	use {'nvim-treesitter/nvim-treesitter',
 		config = function()
 			require 'nvim-treesitter.configs'.setup {
-				ensure_installed = {'lua', 'go', 'c', 'cpp', 'rust', 'javascript', 'typescript', 'fish', 'dockerfile', 'gomod', 'json', 'elixir', 'php', 'tsx', 'haskell', 'dart', 'org', 'norg', 'commonlisp'},
+				ensure_installed = {'lua', 'go', 'c', 'cpp', 'rust', 'javascript', 'typescript', 'fish', 'dockerfile', 'gomod', 'json', 'elixir', 'php', 'tsx', 'haskell', 'dart', 'commonlisp'},
 				highlight = {
 					enable = true,
           additional_vim_regex_highlighting = {'org'},
@@ -63,23 +63,23 @@ return require 'packer'.startup(function(use)
 		end
 	}
 
-  use {'nvim-orgmode/orgmode',
-    after = "nvim-treesitter",
-    config = function()
-      require('orgmode').setup_ts_grammar()
+  --use {'nvim-orgmode/orgmode',
+    --after = "nvim-treesitter",
+    --config = function()
+      --require('orgmode').setup_ts_grammar()
 
-      require('orgmode').setup({
-        org_agenda_files = {'~/org/*', '~/orgs/**/*'},
-        org_default_notes_file = '~/org/refile.org',
-        mappings = {
-          global = {
-            org_agenda = 'gA',
-            org_capture = 'gC'
-          }
-        }
-      })
-    end
-  }
+      --require('orgmode').setup({
+        --org_agenda_files = {'~/org/*', '~/orgs/**/*'},
+        --org_default_notes_file = '~/org/refile.org',
+        --mappings = {
+          --global = {
+            --org_agenda = 'gA',
+            --org_capture = 'gC'
+          --}
+        --}
+      --})
+    --end
+  --}
 
 	use {'windwp/nvim-autopairs',
 		config = function()
@@ -179,7 +179,7 @@ return require 'packer'.startup(function(use)
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  use 'lukas-reineke/indent-blankline.nvim'
+--use "lukas-reineke/indent-blankline.nvim"
 
   use {'norcalli/nvim-colorizer.lua'}
 
@@ -196,11 +196,7 @@ return require 'packer'.startup(function(use)
   use 'karb94/neoscroll.nvim'
 
   use {
-    "windwp/nvim-ts-autotag",
-    after = "nvim-treesitter",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end
+    "windwp/nvim-ts-autotag"
   }
   use 'phaazon/mind.nvim'
 
@@ -223,4 +219,27 @@ return require 'packer'.startup(function(use)
   }
 
   use { 'vlime/vlime', rtp = 'vim/'}
+
+  use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  },
+  config = function()
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/obsidian-vaults/personal-vault",
+        },
+      },
+      -- see below for full list of options 👇
+    })
+  end,
+})
+
 end)
