@@ -21,11 +21,12 @@ function M.nvim_create_augroups(definitions)
 end
 
 
-local autoCommands = {
-    -- other autocommands
-    open_folds = {
-        {"BufReadPost,FileReadPost", "*", "normal zR"}
-    }
-}
+--local autoCommands = {
+    ---- other autocommands
+    --open_folds = {
+        --{"BufReadPost,FileReadPost", "*", "normal zR"}
+    --}
+--}
 
-M.nvim_create_augroups(autoCommands)
+--M.nvim_create_augroups(autoCommands)
+vim.opt.foldlevel = 99 -- this code is to prevent automatic folding

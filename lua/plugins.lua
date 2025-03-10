@@ -241,5 +241,13 @@ return require 'packer'.startup(function(use)
     })
   end,
 })
+--use ({
+    --"nvzone/typr",
+    --requires = {
+      --"nvzone/volt"
+    --},
+    --opts = {},
+    --cmd = { "Typr", "TyprStats" },
+--})
 
 end)
