@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
+local package_path_str = "/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1763148144/share/lua/5.1/?.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1763148144/share/lua/5.1/?/init.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1763148144/lib/luarocks/rocks-5.1/?.lua;/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1763148144/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/kerneldani/.cache/nvim/packer_hererocks/2.1.1763148144/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -118,6 +118,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kerneldani/.local/share/nvim/site/pack/packer/start/go.nvim",
     url = "https://github.com/ray-x/go.nvim"
+  },
+  ["hardtime.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rhardtime\frequire\0" },
+    loaded = true,
+    path = "/home/kerneldani/.local/share/nvim/site/pack/packer/start/hardtime.nvim",
+    url = "https://github.com/m4xshen/hardtime.nvim"
   },
   ["idris2-nvim"] = {
     loaded = true,
@@ -234,7 +240,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n”\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\2\venable\2&additional_vim_regex_highlighting\0\21ensure_installed\1\0\4\17auto_install\2\21ensure_installed\0\fautotag\0\14highlight\0\1\18\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n”\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\2&additional_vim_regex_highlighting\0\venable\2\21ensure_installed\1\0\4\14highlight\0\21ensure_installed\0\fautotag\0\17auto_install\2\1\18\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/kerneldani/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -248,12 +254,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kerneldani/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["obsidian.nvim"] = {
-    config = { "\27LJ\2\n›\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\2B\0\2\1K\0\1\0\15workspaces\1\0\1\15workspaces\0\1\0\2\tpath%~/obsidian-vaults/personal-vault\tname\rpersonal\nsetup\robsidian\frequire\0" },
-    loaded = true,
-    path = "/home/kerneldani/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
-    url = "https://github.com/epwalsh/obsidian.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -363,26 +363,26 @@ time([[Runtimepath customization]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
--- Config for: obsidian.nvim
-time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\2B\0\2\1K\0\1\0\15workspaces\1\0\1\15workspaces\0\1\0\2\tpath%~/obsidian-vaults/personal-vault\tname\rpersonal\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
-time([[Config for obsidian.nvim]], false)
+-- Config for: hardtime.nvim
+time([[Config for hardtime.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rhardtime\frequire\0", "config", "hardtime.nvim")
+time([[Config for hardtime.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n”\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\2&additional_vim_regex_highlighting\0\venable\2\21ensure_installed\1\0\4\14highlight\0\21ensure_installed\0\fautotag\0\17auto_install\2\1\18\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n™\2\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\tview\1\0\1\nwidth\3\30\ffilters\vcustom\1\0\1\vcustom\0\1\3\0\0\t.git\17node_modules\24update_focused_file\1\0\1\venable\2\16diagnostics\1\0\1\venable\2\1\0\5\tview\0\ffilters\0\24update_focused_file\0\16diagnostics\0\15update_cwd\2\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n”\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\fautotag\1\0\1\venable\2\14highlight&additional_vim_regex_highlighting\1\2\0\0\borg\1\0\2\venable\2&additional_vim_regex_highlighting\0\21ensure_installed\1\0\4\17auto_install\2\21ensure_installed\0\fautotag\0\14highlight\0\1\18\0\0\blua\ago\6c\bcpp\trust\15javascript\15typescript\tfish\15dockerfile\ngomod\tjson\velixir\bphp\btsx\fhaskell\tdart\15commonlisp\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

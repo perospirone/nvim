@@ -1,20 +1,20 @@
 function map(mode, lhs, rhs, opts)
-	local options = {
-		noremap = true,
-		silent = true
-	}
+  local options = {
+    noremap = true,
+    silent = true
+  }
 
-	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function nmap(lhs, rhs, opts)
-	map('n', lhs, rhs, opts)
+  map('n', lhs, rhs, opts)
 end
 
 function nimap(lhs, rhs, opts)
-	map('n', lhs, rhs, opts)
-	map('i', lhs, rhs, opts)
+  map('n', lhs, rhs, opts)
+  map('i', lhs, rhs, opts)
 end
 
 --nmap('q', '<Cmd>q<CR>')
@@ -42,7 +42,8 @@ map('n', 'gs', '<Cmd>Lspsaga show_line_diagnostics<CR>')
 
 -- Telescope
 nimap('<C-t>', [[<Cmd>:lua require 'telescope.builtin'.lsp_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
-map('v', '<C-t>', [[<Cmd>:lua require 'telescope.builtin'.lsp_range_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
+map('v', '<C-t>',
+  [[<Cmd>:lua require 'telescope.builtin'.lsp_range_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
 map('n', '<leader>ff', '<Cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>')
 map('n', '<leader>gf', '<Cmd>Telescope git_files<CR>')
@@ -51,3 +52,5 @@ map('n', '<leader>hl', '<Cmd>Telescope highlights<CR>')
 
 map('n', '<C-k>', '<Cmd>Telescope keymaps<CR>') -- look at keybinds
 map('n', '<C-f>', '<Cmd>Telescope current_buffer_fuzzy_find<CR>')
+
+map('n', '<leader>vr', '<Cmd>vertical resize +10<CR>')

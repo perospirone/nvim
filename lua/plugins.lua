@@ -218,29 +218,31 @@ return require 'packer'.startup(function(use)
     requires = { 'nvim-treesitter/nvim-treesitter' }
   }
 
+  use { 'm4xshen/hardtime.nvim', requires = {'MunifTanjim/nui.nvim'}, config = function () require("hardtime").setup() end }
+
   use { 'vlime/vlime', rtp = 'vim/'}
 
-  use({
-  "epwalsh/obsidian.nvim",
-  tag = "*",  -- recommended, use latest release instead of latest commit
-  requires = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
+  --use({
+  --"epwalsh/obsidian.nvim",
+  --tag = "*",  -- recommended, use latest release instead of latest commit
+  --requires = {
+    ---- Required.
+    --"nvim-lua/plenary.nvim",
 
-    -- see below for full list of optional dependencies 👇
-  },
-  config = function()
-    require("obsidian").setup({
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/obsidian-vaults/personal-vault",
-        },
-      },
-      -- see below for full list of options 👇
-    })
-  end,
-})
+    ---- see below for full list of optional dependencies 👇
+  --},
+  --config = function()
+    --require("obsidian").setup({
+      --workspaces = {
+        --{
+          --name = "personal",
+          --path = "~/obsidian-vaults/personal-vault",
+        --},
+      --},
+      ---- see below for full list of options 👇
+    --})
+  --end,
+--})
 --use ({
     --"nvzone/typr",
     --requires = {
