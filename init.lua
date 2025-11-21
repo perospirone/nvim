@@ -1,7 +1,7 @@
 require 'plugins'
 require 'theme'
 require 'keybinds'
-require 'lsp/lspconfig'
+require 'lsp'
 require 'foldconfig'
 
 vim.o.hidden = true
@@ -16,26 +16,26 @@ vim.cmd('set t_Co=256')
 vim.o.clipboard = 'unnamedplus'
 vim.o.scrolloff = 8
 vim.o.completeopt = 'menuone,noselect' -- rever esse item
-vim.opt.ci = true -- rever esse item
+vim.opt.ci = true                      -- rever esse item
 vim.o.autoread = true
-vim.o.wrap = false -- rever esse item
-vim.o.ruler = false -- rever esse item
-vim.o.showmode = false -- rever esse item
+vim.o.wrap = false                     -- rever esse item
+vim.o.ruler = false                    -- rever esse item
+vim.o.showmode = false                 -- rever esse item
 vim.o.confirm = true
 vim.o.updatetime = 250
 vim.o.cursorline = true
 vim.o.mouse = '' -- disable mouse
 vim.o.autoindent = true
 
--- Buffer 
+-- Buffer
 vim.wo.number = true
 vim.wo.relativenumber = true
 
 --  Plugins
 vim.g.gitgutter = true
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.php"},
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "*.php" },
   command = "lua vim.o.autoindent = true",
 })
 
@@ -61,20 +61,20 @@ vim.opt.list = true
 --vim.opt.listchars:append("eol:↴")
 
 --require("indent_blankline").setup {
-  --space_char_blankline = " ",
-  --char_highlight_list = {
-    --"IndentBlanklineIndent1",
-    --"IndentBlanklineIndent2",
-    --"IndentBlanklineIndent3",
-    --"IndentBlanklineIndent4",
-    --"IndentBlanklineIndent5",
-    --"IndentBlanklineIndent6",
-    --},
-    --}
+--space_char_blankline = " ",
+--char_highlight_list = {
+--"IndentBlanklineIndent1",
+--"IndentBlanklineIndent2",
+--"IndentBlanklineIndent3",
+--"IndentBlanklineIndent4",
+--"IndentBlanklineIndent5",
+--"IndentBlanklineIndent6",
+--},
+--}
 
-require ('colorizer').setup {
-  '*'; 
-  css = { rgb_fn = true; }
+require('colorizer').setup {
+  '*',
+  css = { rgb_fn = true, }
 }
 
 vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
@@ -82,7 +82,13 @@ vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 require('go').setup()
 
 require('neoscroll').setup()
-require'mind'.setup()
+require 'mind'.setup()
 -- NeoOrg
 -- Load custom tree-sitter grammar for org filetype
 --require("ibl").setup()
+--
+
+
+require("lspconfig.ui.windows").default_options = {
+  border = "rounded",
+}
