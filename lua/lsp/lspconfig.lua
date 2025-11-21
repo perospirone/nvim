@@ -265,6 +265,7 @@ local server_settings = {
 local servers = {
   'gopls',
   'clangd',
+  'zls',
   'ts_ls',
   'phpactor',
   'ocamllsp',
