@@ -5,7 +5,7 @@ function map(mode, lhs, rhs, opts)
   }
 
   if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 function nmap(lhs, rhs, opts)
@@ -17,11 +17,9 @@ function nimap(lhs, rhs, opts)
   map('i', lhs, rhs, opts)
 end
 
---nmap('q', '<Cmd>q<CR>')
---nmap('Q', '<Cmd>q!<CR>')
 nmap('H', 'gT')
 nmap('L', 'gt')
-nimap('<F4>', '<Cmd>:noh<CR>')
+nimap('<F4>', '<Cmd>noh<CR>')
 nmap('<leader>ct', '<Cmd>tabnew<CR>')
 
 nimap('<C-s>', '<Cmd>w<CR>')
@@ -30,20 +28,17 @@ nimap('<C-s>', '<Cmd>w<CR>')
 nmap('<C-o>', '<Cmd>NvimTreeToggle<CR>')
 nmap('<leader>r', '<Cmd>NvimTreeRefresh<CR>')
 
--- Trouble
---map('n', '<C-x>', '<Cmd>TroubleToggle<CR>')
-
--- Lspsaga
-map('n', '[e', '<Cmd>Lspsaga diagnostic_jump_next<CR>')
-map('n', ']e', '<Cmd>Lspsaga diagnostic_jump_prev<CR>')
-map('n', 'gv', '<Cmd>Lspsaga preview_definition<CR>')
-map('n', 'gb', '<Cmd>Lspsaga hover_doc<CR>')
-map('n', 'gs', '<Cmd>Lspsaga show_line_diagnostics<CR>')
+-- Diagnostics (native; replaces the archived Lspsaga commands)
+map('n', '[e', function() vim.diagnostic.jump({ count = -1 }) end)
+map('n', ']e', function() vim.diagnostic.jump({ count = 1 }) end)
+map('n', 'gs', vim.diagnostic.open_float)
+map('n', 'gb', vim.lsp.buf.hover)
+map('n', 'gv', vim.lsp.buf.definition)
 
 -- Telescope
-nimap('<C-t>', [[<Cmd>:lua require 'telescope.builtin'.lsp_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
+nimap('<C-t>', [[<Cmd>lua require 'telescope.builtin'.lsp_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
 map('v', '<C-t>',
-  [[<Cmd>:lua require 'telescope.builtin'.lsp_range_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
+  [[<Cmd>lua require 'telescope.builtin'.lsp_range_code_actions(require 'telescope.themes'.get_cursor{})<CR>]])
 map('n', '<leader>ff', '<Cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>')
 map('n', '<leader>gf', '<Cmd>Telescope git_files<CR>')
