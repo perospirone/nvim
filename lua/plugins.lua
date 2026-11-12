@@ -10,11 +10,11 @@ return {
       require("theme")
     end,
   },
-  { "xiyaowong/nvim-transparent", lazy = false },
+  { "xiyaowong/nvim-transparent",  lazy = false },
 
   -- Statusline / icons
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-lualine/lualine.nvim",   dependencies = { "nvim-tree/nvim-web-devicons" } },
 
   -- File tree
   {
@@ -70,10 +70,15 @@ return {
   "alvan/vim-closetag",
   "mg979/vim-visual-multi",
   "preservim/nerdcommenter",
-  { "karb94/neoscroll.nvim", lazy = false, config = function() require("neoscroll").setup() end },
-  { "norcalli/nvim-colorizer.lua", lazy = false, config = function()
-    require("colorizer").setup({ "*", css = { rgb_fn = true } })
-  end },
+  { "karb94/neoscroll.nvim",  lazy = false,                                    config = function() require("neoscroll")
+        .setup() end },
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = false,
+    config = function()
+      require("colorizer").setup({ "*", css = { rgb_fn = true } })
+    end
+  },
 
   -- LSP + completion
   {
@@ -110,7 +115,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = {
-        "gopls", "clangd", "zls", "ts_ls", "phpactor", "ocamllsp", "dartls",
+        "gopls", "clangd", "zls", "ts_ls", "phpactor", "dartls",
         "eslint", "tailwindcss", "lua_ls", "rust_analyzer", "pyright", "jsonls",
         "html", "cssls",
       },
@@ -119,7 +124,7 @@ return {
   { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, dependencies = "nvim-lua/plenary.nvim" },
 
   -- Formatting
-  { "sbdchd/neoformat", cmd = "Neoformat" },
+  { "sbdchd/neoformat",       cmd = "Neoformat" },
 
   -- Git
   "airblade/vim-gitgutter",
@@ -133,9 +138,14 @@ return {
     opts = {},
   },
   { "voldikss/vim-floaterm", cmd = { "FloatermNew", "FloatermToggle", "FloatermKill" } },
-  { "m4xshen/hardtime.nvim", event = "VeryLazy", dependencies = "MunifTanjim/nui.nvim", config = function()
-    require("hardtime").setup()
-  end },
+  {
+    "m4xshen/hardtime.nvim",
+    event = "VeryLazy",
+    dependencies = "MunifTanjim/nui.nvim",
+    config = function()
+      require("hardtime").setup()
+    end
+  },
   -- Discord RPC only loads when the Discord socket exists, otherwise it retries
   -- and logs errors on every start
   {
@@ -145,25 +155,27 @@ return {
       return vim.uv.fs_stat("/run/user/" .. vim.uv.getuid() .. "/discord-ipc-0") ~= nil
     end,
     config = function()
-    require("presence").setup({
-      auto_update = true,
-      neovim_image_text = "The One True Text Editor",
-      main_image = "file",
-      log_level = "error",
-      debounce_timeout = 10,
-      enable_line_number = false,
-      editing_text = "Working on %s",
-      file_explorer_text = "Browsing %s",
-      git_commit_text = "Committing Changes",
-      plugin_manager_text = "Managing Plugins",
-      reading_text = "Looking at %s",
-      workspace_text = "Workspace: %s",
-      line_number_text = "Line %s/%s",
-    })
-  end },
+      require("presence").setup({
+        auto_update = true,
+        neovim_image_text = "The One True Text Editor",
+        main_image = "file",
+        log_level = "error",
+        debounce_timeout = 10,
+        enable_line_number = false,
+        editing_text = "Working on %s",
+        file_explorer_text = "Browsing %s",
+        git_commit_text = "Committing Changes",
+        plugin_manager_text = "Managing Plugins",
+        reading_text = "Looking at %s",
+        workspace_text = "Workspace: %s",
+        line_number_text = "Line %s/%s",
+      })
+    end
+  },
 
   -- Language specific
-  { "ray-x/go.nvim", ft = { "go", "gomod", "gosum", "gohtmltmpl" }, config = function() require("go").setup() end },
+  { "ray-x/go.nvim",         ft = { "go", "gomod", "gosum", "gohtmltmpl" },            config = function() require("go")
+        .setup() end },
   "rust-lang/rust.vim",
   { "ShinKage/idris2-nvim", dependencies = { "neovim/nvim-lspconfig", "MunifTanjim/nui.nvim" } },
   {

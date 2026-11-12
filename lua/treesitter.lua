@@ -7,14 +7,19 @@ local parsers = {
 -- No-op for parsers that are already installed
 require("nvim-treesitter").install(parsers)
 
--- The `main` branch does not enable highlighting on its own; start it per buffer
+-- The `main` branch does not enable highlighting on its own; start it per buffer.
+-- Prompt/terminal/quickfix buffers (telescope, lazy, ...) have no parser and must
+-- be skipped; `get_lang` falls back to the filetype name, which is not a language.
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local buf, filetype = args.buf, args.match
-    local language = vim.treesitter.language.get_lang(filetype)
-    if not language or not pcall(vim.treesitter.language.add, language) then
+    if vim.bo[buf].buftype ~= "" then
       return
     end
-    vim.treesitter.start(buf, language)
+    local language = vim.treesitter.language.get_lang(filetype)
+    if not language then
+      return
+    end
+    pcall(vim.treesitter.start, buf, language)
   end,
 })
