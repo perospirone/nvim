@@ -53,12 +53,15 @@ immediately installs nothing; wait for it (`vim.wait`) before judging.
 | `lua/keybinds.lua` | non-LSP keymaps |
 | `lua/theme.lua` | rose-pine config, called from the rose-pine plugin spec |
 | `lua/foldconfig.lua` | treesitter folding |
+| `AGENTS.md` | conventions and gotchas for this repo |
+| `AI_WORKFLOW.md` | review process for agent-written changes |
+| `ROADMAP.md` | ideas that are documented but not installed |
 
 Load order matters: `init.lua` sets `vim.g.*` globals **before**
-`require("lazy").setup(...)` because vimscript plugins (`blamer`,
-`vim-gitgutter`, `vim-closetag`) read them as they load. Plugins with `config`
-hooks (`theme`, `lsp`) are initialized by lazy, so those modules are *not*
-`require`d directly from `init.lua` anymore.
+`require("lazy").setup(...)` because vimscript plugins (`vim-closetag`) read them
+as they load. Plugins with `config` hooks (`theme`, `lsp`, `treesitter`, `gitsigns`)
+are initialized by lazy, so those modules are *not* `require`d directly from
+`init.lua`.
 
 ## Gotchas
 
@@ -100,7 +103,17 @@ hooks (`theme`, `lsp`) are initialized by lazy, so those modules are *not*
   `nvim-lsp-installer`, `tami5/lspsaga.nvim` (archived fork; `[e`/`]e`/`gs`/`gb`/`gv`
   now use native `vim.diagnostic` / `vim.lsp.buf`), `lsp-status.nvim`,
   `lsp-colors.nvim`, `trouble.nvim` (unused: its keymap was commented out),
-  `xit.nvim` (requires `nvim-treesitter.ts_utils`, which the `main` branch removed).
+  `xit.nvim` (requires `nvim-treesitter.ts_utils`, which the `main` branch removed),
+  `vim-gitgutter` and `blamer` (both shell out to `git` synchronously, blamer on
+  every `CursorMoved` after a 500 ms debounce; gitsigns replaces them), and
+  `vim-visual-multi` (unused, and its defaults occupy the leader namespace).
+- **gitsigns ships no default keymaps** in the installed version: `]c`/`[c` and
+  the `<leader>h*` maps are defined in its `on_attach` in `lua/plugins.lua`. It is
+  `lazy = false` on purpose, because loading it on `BufReadPre` registers the
+  attach autocmds too late for the first buffer opened from the command line.
+- **Never run a headless test that modifies a tracked buffer.** `vim.o.confirm`
+  is on, so `+qa` answers the "save changes?" prompt with yes and writes the
+  buffer. Use a scratch file under `/tmp` when exercising buffer mutations.
 - **`presence.nvim` is gated** by a `cond` that checks for the Discord socket, so
   it stays silent when Discord is not running. Do not remove the gate: the
   plugin otherwise logs a connection error on every startup.
@@ -120,6 +133,8 @@ hooks (`theme`, `lsp`) are initialized by lazy, so those modules are *not*
   replaces the old per-handler border tables for all floating windows.
 - Prefer lazy-loading (`event`, `ft`, `cmd`, `keys`) for plugins that are not
   needed at startup; `lazy = false` is reserved for the theme, cmp, lspconfig,
-  treesitter, colorizer and neoscroll, which must be active immediately.
+  treesitter, colorizer, neoscroll and gitsigns, which must be active
+  immediately.
 - User-facing documentation (keymap table, install steps) lives in `README.md`;
-  keep it in sync when adding keymaps or servers.
+  keep it in sync when adding keymaps or servers. Uninstalled ideas go to
+  `ROADMAP.md`, never straight into `lua/plugins.lua`.

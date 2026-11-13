@@ -1,7 +1,8 @@
 # Neovim Configuration
 
 A small, keyboard-driven Neovim setup: rose-pine theme, telescope, nvim-tree,
-treesitter, native LSP (Neovim 0.11+) with nvim-cmp, and lazy.nvim for plugins.
+treesitter, native LSP (Neovim 0.12+) with nvim-cmp, gitsigns for review, and
+lazy.nvim for plugins.
 
 ## Requirements
 
@@ -38,6 +39,14 @@ everything.
 | `lua/theme.lua` | rose-pine configuration and transparent highlights |
 | `lua/foldconfig.lua` | treesitter folding |
 
+## Other docs
+
+| File | Contents |
+| --- | --- |
+| `AGENTS.md` | conventions and gotchas for an agent working on this repo |
+| `AI_WORKFLOW.md` | how to review work done by a coding agent |
+| `ROADMAP.md` | ideas that are not installed, e.g. multi-cursor |
+
 ## Keymaps
 
 `<leader>` is `\`. The same list is available at runtime with `<C-k>`.
@@ -55,6 +64,9 @@ everything.
 | `<C-k>` | telescope keymaps |
 | `<leader>dd` | telescope diagnostics (all files) |
 | `<leader>gd` | diffview: review the working tree diff |
+| `]c` / `[c` | next / previous git hunk |
+| `<leader>hp` / `<leader>hs` / `<leader>hr` | preview / stage / reset hunk (visual: stage selection) |
+| `<leader>hb` / `<leader>hd` / `<leader>tb` | blame line / diff this file / toggle inline blame |
 | `H` / `L` | previous / next tab |
 | `<leader>ct` | new tab |
 | `gd` / `gD` / `gi` / `gr` | definition / declaration / implementation / references |

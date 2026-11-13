@@ -119,14 +119,65 @@ return {
       },
     },
   },
-  { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" }, dependencies = "nvim-lua/plenary.nvim" },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+    dependencies = "nvim-lua/plenary.nvim",
+    opts = {
+      enhanced_diff_hl = true,
+      view = {
+        default = { layout = "diff2_horizontal", winbar_info = false },
+        file_history = { layout = "diff2_horizontal", winbar_info = false },
+      },
+      file_panel = {
+        listing_style = "tree",
+        win_config = { position = "left", width = 32 },
+      },
+    },
+  },
 
   -- Formatting
   { "sbdchd/neoformat",       cmd = "Neoformat" },
 
   -- Git
-  "airblade/vim-gitgutter",
-  "APZelos/blamer.nvim",
+  {
+    -- async hunks and blame; replaces vim-gitgutter + blamer, which shelled out
+    -- to git on cursor movement and on every write
+    "lewis6991/gitsigns.nvim",
+    -- eager: on BufReadPre the plugin's attach autocmds are registered too late
+    -- for the first buffer opened from the command line
+    lazy = false,
+    config = function()
+      require("gitsigns").setup({
+        current_line_blame = false, -- on demand with <leader>tb
+        current_line_blame_opts = { delay = 500, virt_text_pos = "eol" },
+        signs = {
+          add = { text = "+" },
+          change = { text = "~" },
+          delete = { text = "_" },
+          topdelete = { text = "‾" },
+          changedelete = { text = "~" },
+        },
+        on_attach = function(bufnr)
+          local gs = require("gitsigns")
+          local function map(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+          end
+          map("n", "]c", function() gs.nav_hunk("next") end, "next hunk")
+          map("n", "[c", function() gs.nav_hunk("prev") end, "previous hunk")
+          map("n", "<leader>hp", gs.preview_hunk, "preview hunk")
+          map("n", "<leader>hs", gs.stage_hunk, "stage hunk")
+          map("v", "<leader>hs", function()
+            gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+          end, "stage selection")
+          map("n", "<leader>hr", gs.reset_hunk, "reset hunk")
+          map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "blame line")
+          map("n", "<leader>hd", gs.diffthis, "diff this file")
+          map("n", "<leader>tb", gs.toggle_current_line_blame, "toggle line blame")
+        end,
+      })
+    end,
+  },
 
   -- Misc
   {

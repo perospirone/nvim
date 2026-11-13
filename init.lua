@@ -5,10 +5,6 @@ vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
 -- Read by vimscript plugins at load time, so they must be set before lazy.nvim
-vim.g.gitgutter = true
-vim.g.blamer_enabled = 1
-vim.g.blamer_delay = 500
-vim.g.blamer_show_in_visual_modes = 0
 vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.js"
 
 -- Bootstrap lazy.nvim (replaces packer.nvim, which is unmaintained)
