@@ -68,10 +68,8 @@ return {
   "tpope/vim-surround",
   "mattn/emmet-vim",
   "alvan/vim-closetag",
-  "mg979/vim-visual-multi",
   "preservim/nerdcommenter",
-  { "karb94/neoscroll.nvim",  lazy = false,                                    config = function() require("neoscroll")
-        .setup() end },
+  { "karb94/neoscroll.nvim", lazy = false, config = function() require("neoscroll").setup() end },
   {
     "norcalli/nvim-colorizer.lua",
     lazy = false,

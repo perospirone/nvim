@@ -53,6 +53,8 @@ everything.
 | `<leader>gf` / `<leader>rf` | git files / recent files |
 | `<leader>hl` | telescope highlights |
 | `<C-k>` | telescope keymaps |
+| `<leader>dd` | telescope diagnostics (all files) |
+| `<leader>gd` | diffview: review the working tree diff |
 | `H` / `L` | previous / next tab |
 | `<leader>ct` | new tab |
 | `gd` / `gD` / `gi` / `gr` | definition / declaration / implementation / references |

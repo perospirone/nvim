@@ -48,4 +48,8 @@ map('n', '<leader>hl', '<Cmd>Telescope highlights<CR>')
 map('n', '<C-k>', '<Cmd>Telescope keymaps<CR>') -- look at keybinds
 map('n', '<C-f>', '<Cmd>Telescope current_buffer_fuzzy_find<CR>')
 
+-- Reviewing changes (own edits or an agent's)
+map('n', '<leader>dd', '<Cmd>Telescope diagnostics<CR>')
+map('n', '<leader>gd', '<Cmd>DiffviewOpen<CR>')
+
 map('n', '<leader>vr', '<Cmd>vertical resize +10<CR>')
