@@ -23,6 +23,8 @@ opt.cursorline = true
 opt.mouse = "" -- disable mouse
 opt.list = true
 opt.winborder = "rounded" -- rounded borders for all floating windows
+opt.undofile = true -- keep undo history across restarts and buffer closes
+opt.undolevels = 10000
 
 opt.number = true
 opt.relativenumber = true
@@ -30,6 +32,11 @@ opt.relativenumber = true
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = { "*.php" },
   command = "lua vim.o.autoindent = true",
+})
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+  -- pick up changes written by tools outside Neovim without the "file changed" prompt
+  command = "if mode() !=# 'c' | checktime | endif",
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
