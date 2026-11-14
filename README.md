@@ -54,7 +54,7 @@ everything.
 | Theme | rose-pine (v1) | dark rose-pine with transparent background and statusline |
 | Statusline | lualine | defaults: mode, git branch, file info, cursor position |
 | File tree | nvim-tree | `<C-o>` to toggle, `<leader>r` to refresh, git and diagnostic icons |
-| Fuzzy find | telescope | files, live grep, git files, recent files, buffer, diagnostics, keymaps |
+| Fuzzy find | telescope | files, live grep, git files, recent files, buffer, diagnostics, keymaps; skips `vendor/` and `node_modules/` at the source |
 | Syntax | nvim-treesitter (`main`) | highlighting for the parsers listed in `lua/treesitter.lua` |
 | Folding | treesitter | `foldmethod=expr`, starts unfolded (`foldlevel=99`), `zR`/`zM` work |
 | Language servers | nvim-lspconfig + mason | 15 servers preconfigured, installed through mason |
@@ -213,6 +213,9 @@ Server-specific settings belong in `after/lsp/<server>.lua` or a
   buffer in `lua/treesitter.lua`. The old `master` branch is locked to Neovim
   <= 0.11 and cannot be mixed with a `main` checkout.
 - Formatting providers are deliberately disabled for `ts_ls`.
+- Telescope and nvim-tree exclude `vendor/` and `node_modules/`. Telescope does it
+  with `--glob` so ripgrep never walks those trees; filtering results afterwards
+  would still pay the scan, which is what makes large projects lag.
 - Plugins live in `stdpath("data")/lazy`, shared with any other Neovim config on
   this machine (a LazyVim setup also uses that directory). Run this config under
   its own `NVIM_APPNAME` if you want the two to stop sharing plugin clones.

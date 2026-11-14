@@ -114,6 +114,12 @@ are initialized by lazy, so those modules are *not* `require`d directly from
 - **Never run a headless test that modifies a tracked buffer.** `vim.o.confirm`
   is on, so `+qa` answers the "save changes?" prompt with yes and writes the
   buffer. Use a scratch file under `/tmp` when exercising buffer mutations.
+- **Directory exclusions live in two places.** Telescope (`--glob` in
+  `vimgrep_arguments` and `find_files.find_command`) and nvim-tree
+  (`filters.custom`) both skip `vendor/` and `node_modules/`. Add a new excluded
+  directory to both. For telescope use `--glob`: post-filtering with
+  `file_ignore_patterns` still lets ripgrep walk the tree, which is what froze
+  the editor in projects with a large `vendor/`.
 - **`presence.nvim` is gated** by a `cond` that checks for the Discord socket, so
   it stays silent when Discord is not running. Do not remove the gate: the
   plugin otherwise logs a connection error on every startup.

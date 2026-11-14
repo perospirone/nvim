@@ -26,7 +26,7 @@ return {
         sync_root_with_cwd = true,
         diagnostics = { enable = true },
         update_focused_file = { enable = true },
-        filters = { custom = { ".git", "node_modules" } },
+        filters = { custom = { ".git", "node_modules", "vendor" } },
         view = { width = 30 },
       })
     end,
@@ -37,6 +37,28 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
     cmd = "Telescope",
+    config = function()
+      -- Exclude at the source: filtering after rg/fd has run still pays the cost
+      -- of walking these directories, which is what makes large projects lag.
+      local excluded = { "vendor", "node_modules" }
+      local globs = {}
+      for _, dir in ipairs(excluded) do
+        globs[#globs + 1] = "--glob=!**/" .. dir .. "/**"
+      end
+      require("telescope").setup({
+        defaults = {
+          vimgrep_arguments = vim.list_extend({
+            "rg", "--color=never", "--no-heading", "--with-filename",
+            "--line-number", "--column", "--smart-case",
+          }, globs),
+        },
+        pickers = {
+          find_files = {
+            find_command = vim.list_extend({ "rg", "--files", "--color", "never" }, globs),
+          },
+        },
+      })
+    end,
   },
 
   -- Treesitter
